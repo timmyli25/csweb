@@ -9,6 +9,8 @@ from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
 from home import views as home_views
+from pa import views as pa_views
+from lab import views as lab_views
 
 urlpatterns = [
     url(r'^django-admin/', admin.site.urls),
@@ -18,6 +20,10 @@ urlpatterns = [
 
     url(r'^search/$', search_views.search, name='search'),
     url(r'^home/$', home_views.get_home, name = 'home'),
+    url(r'^pai/$', pa_views.get_pa_index, name = 'pai'),
+    url(r'pa-[0-9]+/$', pa_views.get_pa, name = 'pa'),
+    url(r'labi/$', lab_views.get_lab_index, name = 'labi'),
+    url(r'lab-[0-9]+/$', lab_views.get_lab, name = 'lab'),
 
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
